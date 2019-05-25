@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Media.Animation;
 using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 
 namespace FirstProject
 {
@@ -24,14 +25,64 @@ namespace FirstProject
     public partial class MainWindow : Window
     {
         Random random = new Random();
+        DispatcherTimer enemyTimer = new DispatcherTimer();
+        DispatcherTimer targetTimer = new DispatcherTimer();
+        bool humanCaptured = false;
         public MainWindow()
         {
             InitializeComponent();
+
+            enemyTimer.Tick += EnemyTimer_Tick;
+            enemyTimer.Interval = TimeSpan.FromSeconds(2);
+
+            targetTimer.Tick += TargetTimer_Tick;
+            targetTimer.Interval = TimeSpan.FromSeconds(.1);
+        }
+
+        private void TargetTimer_Tick(object sender, EventArgs e)
+        {
+            progressBar.Value += 1;
+            if(progressBar.Value >= progressBar.Maximum)
+            {
+                EndTheGame();
+            }
+        }
+
+        
+
+        private void EndTheGame()
+        {
+            if (!PlayArea.Children.Contains(gameOverText))
+            {
+                enemyTimer.Stop();
+                targetTimer.Stop();
+                humanCaptured = false;
+                startButton.Visibility = Visibility.Visible;
+                PlayArea.Children.Add(gameOverText);
+            }
+        }
+
+        private void EnemyTimer_Tick(object sender, EventArgs e)
+        {
+            AddEnemy();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddEnemy();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            human.IsHitTestVisible = true;
+            humanCaptured = false;
+            progressBar.Value = 0;
+            startButton.Visibility = Visibility.Collapsed;
+            PlayArea.Children.Clear();
+            PlayArea.Children.Add(target);
+            PlayArea.Children.Add(human);
+            enemyTimer.Start();
+            targetTimer.Start();
         }
 
         private void AddEnemy()
@@ -56,6 +107,34 @@ namespace FirstProject
             Storyboard.SetTargetProperty(animation, new PropertyPath(propertyToAnimate));
             storyBoard.Children.Add(animation);
             storyBoard.Begin();
+        }
+
+        private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void Human_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (enemyTimer.IsEnabled)
+            {
+                humanCaptured = true;
+                human.IsHitTestVisible = false;
+            }
+        }
+
+        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (targetTimer.IsEnabled && humanCaptured)
+            {
+                progressBar.Value = 0;
+                Canvas.SetLeft(target, random.Next(100, (int)PlayArea.ActualWidth-100));
+                Canvas.SetTop(target, random.Next(100, (int)PlayArea.ActualHeight - 100));
+                Canvas.SetLeft(human, random.Next(100, (int)PlayArea.ActualWidth - 100));
+                Canvas.SetTop(human, random.Next(100, (int)PlayArea.ActualHeight - 100));
+                humanCaptured = false;
+                human.IsHitTestVisible = true;
+            }
         }
     }
 }
