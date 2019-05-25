@@ -1,0 +1,15 @@
+C:\Users\Arczi\Desktop\C#\MonstersAttack\bin\Debug\FirstProject.exe.config
+C:\Users\Arczi\Desktop\C#\MonstersAttack\bin\Debug\FirstProject.exe
+C:\Users\Arczi\Desktop\C#\MonstersAttack\bin\Debug\FirstProject.pdb
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.csprojAssemblyReference.cache
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\MainWindow.g.cs
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\App.g.cs
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject_MarkupCompile.cache
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject_MarkupCompile.lref
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\MainWindow.baml
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.g.resources
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.Properties.Resources.resources
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.csproj.GenerateResource.cache
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.csproj.CoreCompileInputs.cache
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.exe
+C:\Users\Arczi\Desktop\C#\MonstersAttack\obj\Debug\FirstProject.pdb
