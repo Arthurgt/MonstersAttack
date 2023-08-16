@@ -1,10 +1,10 @@
 # MonstersAttack
 
 ## Purpose
-Is my first game project in C#, WPF and Visual Studio 2019. I wanted to learn how IDE works and how to connect XAML documents with C# code.
+It is my first game project in C#, WPF and Visual Studio 2019. Created to learn how IDE Visual Studio works and how to connect XAML documents with C# code.
 
 ## Game Rules
-At the begginig you have to click start button, then click on the human model and drag him safely to the portal before your time. Be careful, contact with monsters will kill you!
+At the begginig you have to click start button, then click on the human model and drag him safely to the portal before time runs out. Be careful, contact with monsters is dangerous!
 
 ## Presentation
 <p>
